@@ -1,6 +1,7 @@
 {
     "type": "sqlite",
     "database": "./src/database/database.sqlite",
+    "migrations": ["./src/database/migrations/**.ts"],
     "synchronize": true,
     "cli": {
         "migrationsDir": "./src/database/migrations"
