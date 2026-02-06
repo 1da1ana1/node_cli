@@ -10,6 +10,13 @@ class SurveysController {
 
     return res.status(201).json(surveys);
   }
+
+  async show(req: Request, res: Response) {
+    const surveysRepository = SurveysRepository;
+    
+    const all = await SurveysRepository.find();
+    return res.json(all);
+  }
 }
 
 export { SurveysController };
