@@ -1,15 +1,18 @@
 import "reflect-metadata";
 import { DataSource } from "typeorm";
 import path from "path"; 
-import { User } from "../models/User";
-import { Survey } from "../models/Survey";
 
 export const AppDataSource = new DataSource({
   type: "sqlite",
-  database: path.resolve(__dirname, "./database.sqlite"), 
-  synchronize: true,
+  database: process.env.NODE_ENV === "test" 
+    ? path.resolve(__dirname, "database.test.sqlite") 
+    : path.resolve(__dirname, "database.sqlite"),
+  synchronize: false,
   logging: false,
-  entities: [User, Survey],
-  migrations: [],
-  subscribers: [],
+  entities: [
+    path.resolve(__dirname, "..", "models", "*.{ts,js}")
+  ],
+  migrations: [
+    path.resolve(__dirname, "migrations", "*.{ts,js}")
+  ],
 });
