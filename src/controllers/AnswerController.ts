@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { AppDataSource } from "../database/data-source";
 import { SurveyUser } from "../models/SurveyUser"; // <--- CERTIFIQUE-SE QUE ESTÁ ESCRITO CORRETO (SurveyUser)
-
+import { AppErrors } from "../errors/AppErrors";
 class AnswerController {
     async execute(request: Request, response: Response) {
         const { value } = request.params;
@@ -13,7 +13,6 @@ class AnswerController {
         if (!u) {
              return response.status(400).json({ error: "Token de usuário não fornecido na URL!" });
         }
-
       
         const surveyUsersRepository = AppDataSource.getRepository(SurveyUser);
 
@@ -22,8 +21,7 @@ class AnswerController {
         });
 
         if (!surveyUser) {
-            console.log("Erro: SurveyUser não encontrado no banco para o ID:", u);
-            return response.status(400).json({ error: "Survey User does not exist" });
+            throw new AppErrors("Survey User does not exist");
         }
 
    

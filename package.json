@@ -22,7 +22,8 @@
     "sqlite": "^5.1.1",
     "sqlite3": "^5.0.2",
     "typeorm": "^0.3.6",
-    "uuid": "^13.0.0"
+    "uuid": "^13.0.0",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",
