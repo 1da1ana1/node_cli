@@ -1,0 +1,185 @@
+<style>
+  /* Container principal da janela */
+  .window-container {
+    width: 600px;
+    max-width: 95%;
+    margin: 20px auto;
+    background-color: #FFF5F9; /* Fundo rosinha claro */
+    border: 3px solid #48242E; /* Borda escura estilo cartoon */
+    border-radius: 12px;
+    font-family: 'Courier New', Courier, monospace, sans-serif;
+    
+    /* A "sombra" sólida deslocada (efeito retro) */
+    box-shadow: 10px 10px 0px #D67C9E; 
+    overflow: hidden; 
+  }
+
+  /* Barra de Título */
+  .title-bar {
+    background-color: #FFCCE0;
+    border-bottom: 3px solid #48242E;
+    padding: 8px 12px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 25px;
+  }
+
+  /* Botões da janela (decoração) */
+  .window-controls {
+    display: flex;
+    gap: 6px;
+  }
+
+  .control-btn {
+    width: 18px;
+    height: 18px;
+    border: 2px solid #48242E;
+    background-color: #fff;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: bold;
+    color: #48242E;
+    cursor: default;
+    line-height: 0;
+  }
+
+  /* Corpo da janela */
+  .window-body {
+    display: flex;
+    flex-direction: row;
+    min-height: 300px;
+  }
+
+  /* Conteúdo */
+  .content-area {
+    flex: 1;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #48242E;
+    text-align: center;
+  }
+
+  /* Barra de rolagem fake (direita) */
+  .fake-scrollbar {
+    width: 35px;
+    border-left: 3px solid #48242E;
+    background-color: #FFF0F5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 0;
+  }
+
+  .scroll-arrow {
+    font-size: 14px;
+    color: #48242E;
+    cursor: default;
+  }
+
+  .scroll-track {
+    flex: 1;
+    width: 12px;
+    background-color: #FFE4ED;
+    border: 2px solid #48242E;
+    border-radius: 10px;
+    margin: 5px 0;
+    position: relative;
+  }
+
+  .scroll-thumb {
+    width: 100%;
+    height: 40%;
+    background-color: #FF94B4;
+    border-bottom: 2px solid #48242E;
+    border-radius: 8px 8px 0 0;
+  }
+
+  /* Botões de resposta */
+  .answers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 25px 0;
+    width: 100%;
+  }
+
+  .value {
+    width: 35px;
+    height: 35px;
+    background-color: #FFCCE0;
+    border: 2px solid #48242E;
+    border-radius: 6px;
+    color: #48242E;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+
+  .value:hover {
+    background-color: #FF94B4;
+    box-shadow: 2px 2px 0px #48242E;
+    position: relative;
+    top: -2px;
+    left: -2px;
+  }
+</style>
+
+<div class="window-container">
+  <div class="title-bar">
+    <div class="window-controls">
+      <div class="control-btn" title="Minimizar">_</div>
+      <div class="control-btn" title="Maximizar">□</div>
+      <div class="control-btn" title="Fechar">×</div>
+    </div>
+  </div>
+
+  <div class="window-body">
+    <div class="content-area">
+      <label style="font-size: 16px;">Oii <strong>{{name}}</strong>! Tudo bem?</label>
+      
+      <br><br>
+      
+      <h3 style="margin: 0; font-size: 20px;">{{title}}</h3>
+      <p style="margin-top: 10px;">{{description}}</p>
+
+      <div class="answers">
+        <a class="value" href="{{link}}/1?u={{id}}">1</a>
+        <a class="value" href="{{link}}/2?u={{id}}">2</a>
+        <a class="value" href="{{link}}/3?u={{id}}">3</a>
+        <a class="value" href="{{link}}/4?u={{id}}">4</a>
+        <a class="value" href="{{link}}/5?u={{id}}">5</a>
+        <a class="value" href="{{link}}/6?u={{id}}">6</a>
+        <a class="value" href="{{link}}/7?u={{id}}">7</a>
+        <a class="value" href="{{link}}/8?u={{id}}">8</a>
+        <a class="value" href="{{link}}/9?u={{id}}">9</a>
+        <a class="value" href="{{link}}/10?u={{id}}">10</a>
+      </div>
+
+      <br>
+      <p style="font-size: 12px; line-height: 1.5;">
+        Sua opinião é muito importante para o meu crescimento! <br>
+        <strong style="font-size: 18px; color: #FF94B4;">♥</strong>
+      </p>
+      <h4 style="margin-bottom: 0;">Atenciosamente, Yasmim Daiana</h4>
+    </div>
+
+    <div class="fake-scrollbar">
+      <div class="scroll-arrow">▲</div>
+      <div class="scroll-track">
+        <div class="scroll-thumb"></div>
+      </div>
+      <div class="scroll-arrow">▼</div>
+    </div>
+  </div>
+</div>

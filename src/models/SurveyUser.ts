@@ -1,5 +1,7 @@
 import crypto from "crypto";
-import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { User } from "./User";
+import { Survey } from "./Survey";
 
 @Entity("surveys_users")
 class SurveyUser {
@@ -8,9 +10,16 @@ class SurveyUser {
 
   @Column()
   survey_id: string;
+  @ManyToOne(() => Survey)
+  @JoinColumn({ name: "survey_id" })
+  survey:  Survey;
 
   @Column()
   user_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: "user_id" })
+  user: User
 
   @Column()
   value: number;
