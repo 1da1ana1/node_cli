@@ -27,17 +27,17 @@ class SendMailController {
             relations: ["user", "survey"],
         });
 
-        // Objeto de variáveis que vai para o HTML
+       
         const variables = {
             name: userAlreadyExists.name,
             title: surveyAlreadyExists.title,
             description: surveyAlreadyExists.description,
-            id: "", // Vamos usar 'id' para passar o ID do SurveyUser
+            id: "", 
             link: process.env.URL_MAIL,
         };
 
         if (surveyUserAlreadyExists) {
-            variables.id = surveyUserAlreadyExists.id; // <--- Preenche o ID aqui
+            variables.id = surveyUserAlreadyExists.id; 
             await SendMailService.execute(email, surveyAlreadyExists.title, variables, npsPath);
             return res.json(surveyUserAlreadyExists);
         }
@@ -49,7 +49,7 @@ class SendMailController {
 
         await SurveysUsersRepository.save(surveyUser);
 
-        variables.id = surveyUser.id; // <--- Preenche o ID aqui
+        variables.id = surveyUser.id; 
 
         await SendMailService.execute(email, variables.title, variables, npsPath);
 

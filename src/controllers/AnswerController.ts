@@ -9,12 +9,12 @@ class AnswerController {
 
         console.log("AnswerController acionado. Token:", u, "Nota:", value);
 
-        // Verifica se o token 'u' chegou
+        
         if (!u) {
              return response.status(400).json({ error: "Token de usuário não fornecido na URL!" });
         }
 
-        // Pega o repositório padrão da entidade
+      
         const surveyUsersRepository = AppDataSource.getRepository(SurveyUser);
 
         const surveyUser = await surveyUsersRepository.findOne({
@@ -26,7 +26,7 @@ class AnswerController {
             return response.status(400).json({ error: "Survey User does not exist" });
         }
 
-        // Salva a nota
+   
         surveyUser.value = Number(value);
         await surveyUsersRepository.save(surveyUser);
 
