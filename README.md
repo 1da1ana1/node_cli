@@ -2,7 +2,7 @@
 
 API REST para gestão de pesquisas de satisfação, envio de e-mails transacionais e cálculo de métricas de lealdade do cliente.
 
-## 🛠️ Tech Stack & Arquitetura
+## Tech Stack & Arquitetura
 * **Runtime:** Node.js + TypeScript
 * **Framework:** Express
 * **ORM:** TypeORM (com Migrations)
@@ -10,13 +10,7 @@ API REST para gestão de pesquisas de satisfação, envio de e-mails transaciona
 * **Testes:** Jest & Supertest (Testes de Integração)
 * **E-mail:** Nodemailer + Handlebars (Templates dinâmicos)
 
-## 🎯 Diferenciais Técnicos
-* **Clean Code:** Separação clara entre Controllers, Repositories e Services.
-* **Integridade:** Testes de integração cobrindo fluxos críticos.
-* **UX Transacional:** Integração com Ethereal Mail para preview de e-mails em dev.
-* **Validations:** Tratamento de erros customizados e validação de duplicidade.
-
-## ⚙️ Instalação e Execução
+## Instalação e Execução
 
 ```bash
 # 1) Instalar dependências
@@ -36,7 +30,7 @@ Servidor disponível em:
 
 - `http://localhost:3000`
 
-## 🔐 Variáveis de ambiente
+## Variáveis de ambiente
 
 Edite o arquivo `.env` com os valores do seu ambiente:
 
@@ -46,7 +40,7 @@ URL_MAIL=http://localhost:3000/answers
 
 > `URL_MAIL` é usada no template de e-mail para montar o link de resposta da pesquisa.
 
-## 👀 Como ver o e-mail na web (Ethereal)
+## Como ver o e-mail na web (Ethereal)
 
 O projeto usa `nodemailer.createTestAccount()`, então os e-mails **não são enviados para uma caixa real**. Em vez disso, o Nodemailer gera um link de visualização web.
 
@@ -100,7 +94,7 @@ Preview URL: https://ethereal.email/message/...
 - Se não aparecer `Preview URL`, verifique se a requisição para `/sendMail` retornou sucesso e se a API está rodando sem erros.
 - O template usado no e-mail está em `src/views/emails/npsMail.hbs`.
 
-## 🧪 Testes
+## Testes
 
 ```bash
 npm test
